@@ -1,5 +1,3 @@
-// crawler.ts
-
 import { chromium, type Page, type Browser } from 'playwright';
 
 export interface CrawledPage {
@@ -22,10 +20,7 @@ export async function fetchPage(url: string): Promise<CrawledPage> {
     },
   });
 
-  await page.goto(url, {
-    waitUntil: 'networkidle',
-    timeout: 30000,
-  });
+  await page.goto(url);
 
   await page.waitForTimeout(1000);
 

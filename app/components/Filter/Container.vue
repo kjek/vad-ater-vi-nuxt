@@ -69,6 +69,7 @@
           :label="day"
           color="neutral"
           variant="outline"
+          :aria-pressed="isDaySelected(day)"
           :active="isDaySelected(day)"
           active-color="primary"
           @click="toggleDay(day)"
@@ -78,6 +79,7 @@
     <UInput
       id="search-restaurant"
       v-model="searchQuery"
+      aria-label="Sök"
       type="text"
       title="Sök på restauranger som ska visas i listan"
       placeholder="Sök restauranger..."

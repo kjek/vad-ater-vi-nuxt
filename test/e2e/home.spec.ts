@@ -13,6 +13,7 @@ test('Home page loads and displays restaurants', async () => {
   expect(await heading.textContent()).toMatch(/lunch i sundsvall/i);
 
   const restaurants = page.locator('[data-test="lunch-item"]');
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   expect(await restaurants.count()).toBeGreaterThan(0);
 
   await browser.close();

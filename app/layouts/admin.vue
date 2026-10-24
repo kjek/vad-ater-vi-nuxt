@@ -52,7 +52,6 @@ const onAddPasskey = async () => {
 };
 
 const onLogout = async () => {
-  console.log('oioi');
   await signOut({ callbackUrl: '/login' });
 };
 

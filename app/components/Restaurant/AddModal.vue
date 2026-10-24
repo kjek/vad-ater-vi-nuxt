@@ -70,10 +70,6 @@ interface Emits {
 const emit = defineEmits<Emits>();
 const open = defineModel<boolean>('open', { required: true });
 
-watch(open, (newVal) => {
-  console.log(newVal);
-});
-
 const state = reactive<Partial<CreateRestaurantConfig>>({
   name: undefined,
   homeUrl: undefined,

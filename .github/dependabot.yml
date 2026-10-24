@@ -5,12 +5,17 @@
 
 version: 2
 updates:
-  - package-ecosystem: 'pnpm'
+  - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'monthly'
+      interval: 'weekly'
       day: 'sunday'
     target-branch: 'develop'
+    cooldown:
+      default-days: 5 # only propose versions published at least 7 days ago
+      semver-patch-days: 5
+      semver-minor-days: 5
+      semver-major-days: 30
     commit-message:
       prefix: 'build'
       include: 'scope'
@@ -23,5 +28,5 @@ updates:
         update-types: ['version-update:semver-major']
       - dependency-name: 'vite'
         update-types: ['version-update:semver-major']
-    open-pull-requests-limit: 5 # Avoid Dependabot flooding your PR list
+    open-pull-requests-limit: 5
     rebase-strategy: 'auto'
